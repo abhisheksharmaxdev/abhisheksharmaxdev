@@ -73,7 +73,7 @@ I am a **B.Tech Computer Science student** at Ganpat University (ICT), specializ
 
 **Cloud, DevOps & Tooling**
 
-<img src="https://skillicons.dev/icons?i=git,github,netlify,vscode,pytorch,sklearn,pandas,numpy&theme=dark" />
+<img src="https://skillicons.dev/icons?i=git,github,netlify,vscode,pytorch,sklearn,render,pandas,numpy&theme=dark" />
 
 </div>
 
@@ -254,16 +254,6 @@ Taught basic computer skills to 40 students, improving their digital literacy wh
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/abhisheksharmaxdev/abhisheksharmaxdev/main/assets/metrics-stats.svg" alt="GitHub Stats" width="100%" />
-
-</div>
-
----
-
-## GitHub Trophies
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/abhisheksharmaxdev/abhisheksharmaxdev/main/assets/metrics-achievements.svg" alt="GitHub Achievements" width="100%" />
 
 </div>
 

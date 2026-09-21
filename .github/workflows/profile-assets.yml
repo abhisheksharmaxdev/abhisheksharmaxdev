@@ -1,0 +1,72 @@
+name: Profile Assets
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=#a78bfa&color_dots=#1e1b4b,#4c1d95,#6d28d9,#7c3aed,#a78bfa
+      - uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  metrics-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          template: classic
+          base: header, metadata
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_colors: github
+          plugin_languages_details: percentage
+          config_timezone: Asia/Calcutta
+
+  metrics-achievements:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-achievements.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          template: classic
+          base: ""
+          plugin_achievements: yes
+          plugin_achievements_threshold: C
+          plugin_achievements_display: detailed
+          config_timezone: Asia/Calcutta
+
+  metrics-activity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-activity.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: ${{ github.repository_owner }}
+          template: classic
+          base: ""
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          config_timezone: Asia/Calcutta
